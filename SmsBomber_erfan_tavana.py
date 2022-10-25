@@ -1,15 +1,7 @@
 import time
 import requests 
-# import resource 
 import random
-from colorama import Fore as color  
 import os
-from rich import pretty
-pretty.install()
-from rich. prompt import Prompt
-from rich. console import Console
-console = Console()
-from time import sleep
 import winsound
 
 from info import number,heads
